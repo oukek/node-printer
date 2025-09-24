@@ -31,7 +31,13 @@ jobs:
             sudo apt install -y libcups2-dev pkg-config
           elif [[ "$RUNNER_OS" == "macOS" ]]; then
             brew install cups pkg-config
-          fi
+            # 设置环境变量让 pkg-config 找到 Homebrew CUPS
+            export PKG_CONFIG_PATH="/opt/homebrew/opt/cups/lib/pkgconfig"
+            export LDFLAGS="-L/opt/homebrew/opt/cups/lib"
+            export CPPFLAGS="-I/opt/homebrew/opt/cups/include"
+            echo "PKG_CONFIG_PATH=$PKG_CONFIG_PATH" >> $GITHUB_ENV
+            echo "LDFLAGS=$LDFLAGS" >> $GITHUB_ENV
+            echo "CPPFLAGS=$CPPFLAGS" >> $GITHUB_ENV
 
       - name: Install build tools
         run: |
@@ -40,6 +46,10 @@ jobs:
 
       - name: Build native addon
         run: npm run build
+        env:
+          PKG_CONFIG_PATH: ${{ env.PKG_CONFIG_PATH }}
+          CPPFLAGS: ${{ env.CPPFLAGS }}
+          LDFLAGS: ${{ env.LDFLAGS }}
 
       - name: Upload built addon
         uses: actions/upload-artifact@v4
