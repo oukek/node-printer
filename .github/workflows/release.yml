@@ -6,7 +6,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -23,11 +23,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install build tools
-        run: |
-          npm install -g node-gyp
-          npm install
-
       - name: Install CUPS dev on Linux/macOS
         if: runner.os != 'Windows'
         run: |
@@ -37,6 +32,11 @@ jobs:
           elif [[ "$RUNNER_OS" == "macOS" ]]; then
             brew install cups pkg-config
           fi
+
+      - name: Install build tools
+        run: |
+          npm install -g node-gyp
+          npm install
 
       - name: Build native addon
         run: npm run build
