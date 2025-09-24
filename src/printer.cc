@@ -11,8 +11,7 @@
 #include "pdfium/include/fpdfview.h"
 #include "pdfium/include/fpdf_doc.h"
 #include "pdfium/include/fpdf_text.h"
-#endif
-#ifdef __linux__ || __APPLE__
+#elif defined(__linux__) || defined(__APPLE__)
 #include <cups/cups.h>
 #include <cups/ppd.h>
 #endif
@@ -51,7 +50,7 @@ Napi::Array GetPrintersWrapped(const Napi::CallbackInfo& info) {
     }
   }
 
-#elif __linux__ || __APPLE__
+#elif defined(__linux__) || defined(__APPLE__)
   int num_dests;
   cups_dest_t* dests;
   num_dests = cupsGetDests(&dests);

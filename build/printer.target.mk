@@ -39,7 +39,8 @@ CFLAGS_CC_Debug := \
 	-std=gnu++17 \
 	-stdlib=libc++ \
 	-fno-rtti \
-	-fno-exceptions
+	-fno-exceptions \
+	-std=c++17
 
 # Flags passed to only ObjC files.
 CFLAGS_OBJC_Debug :=
@@ -92,7 +93,8 @@ CFLAGS_CC_Release := \
 	-std=gnu++17 \
 	-stdlib=libc++ \
 	-fno-rtti \
-	-fno-exceptions
+	-fno-exceptions \
+	-std=c++17
 
 # Flags passed to only ObjC files.
 CFLAGS_OBJC_Release :=
@@ -168,7 +170,8 @@ LIBTOOLFLAGS_Release := \
 	-undefined dynamic_lookup \
 	-Wl,-search_paths_first
 
-LIBS :=
+LIBS := \
+	-lcups
 
 $(builddir)/printer.node: GYP_LDFLAGS := $(LDFLAGS_$(BUILDTYPE))
 $(builddir)/printer.node: LIBS := $(LIBS)
