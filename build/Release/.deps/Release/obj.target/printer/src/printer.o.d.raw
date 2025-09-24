@@ -1,0 +1,8 @@
+Release/obj.target/printer/src/printer.o: ../src/printer.cc \
+  /Users/codebear/yinni/node-printer/node_modules/.pnpm/node-addon-api@8.5.0/node_modules/node-addon-api/napi.h \
+  /Users/codebear/Library/Caches/node-gyp/22.19.0/include/node/node_api.h \
+  /Users/codebear/Library/Caches/node-gyp/22.19.0/include/node/js_native_api.h \
+  /Users/codebear/Library/Caches/node-gyp/22.19.0/include/node/js_native_api_types.h \
+  /Users/codebear/Library/Caches/node-gyp/22.19.0/include/node/node_api_types.h \
+  /Users/codebear/yinni/node-printer/node_modules/.pnpm/node-addon-api@8.5.0/node_modules/node-addon-api/napi-inl.h \
+  /Users/codebear/yinni/node-printer/node_modules/.pnpm/node-addon-api@8.5.0/node_modules/node-addon-api/napi-inl.deprecated.h

@@ -1,0 +1,29 @@
+{
+  "name": "@oukek/printer-sdk",
+  "version": "1.0.0",
+  "description": "Cross-platform printer SDK with PDF/image printing",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc && node-gyp rebuild",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oukek/printer-sdk.git"
+  },
+  "author": "Charlie",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.4.0",
+    "node-gyp": "^10.0.0"
+  },
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "node-addon-api": "^8.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
