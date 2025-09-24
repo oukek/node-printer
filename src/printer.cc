@@ -11,11 +11,12 @@
 #include "pdfium/include/fpdfview.h"
 #include "pdfium/include/fpdf_doc.h"
 #include "pdfium/include/fpdf_text.h"
-#elif __linux__
-#include <cups/cups.h>
-#elif __APPLE__
-#include <cups/cups.h>
 #endif
+#ifdef __linux__ || __APPLE__
+#include <cups/cups.h>
+#include <cups/ppd.h>
+#endif
+
 
 namespace fs = std::filesystem;
 
